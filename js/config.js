@@ -1,3 +1,3 @@
-window.CGV_API_URL = "http://localhost:5000";
-window.RECAPTCHA_SITE_KEY = "";
-window.RECAPTCHA_SITE_KEY_V3 = "";
+window.CGV_API_URL = "http://202.60.104.124:5000";
+window.RECAPTCHA_SITE_KEY = "6Lcz1dgtAAAAAEz5d6XWVaCPJWQ12xOrA0Ac4tmv";
+window.RECAPTCHA_SITE_KEY_V3 = "6Lcz4dgtAAAAAFsx15Cf6GQuw6l2FNqlZJFnHbF0";
