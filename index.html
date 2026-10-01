@@ -1,0 +1,270 @@
+<!doctype html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("cgv-theme") === "dark")
+            document.documentElement.classList.add("dark");
+        } catch (e) {}
+        var groups =
+          "phan-anh-dnc|kho-du-lieu|hau-kiem|phan-anh-tin-nhan-cuoc-goi-rac";
+        var path = location.pathname.replace(/\/+$/, "") || "/";
+        var routeRe = new RegExp("/(?:" + groups + ")$");
+        var root = routeRe.test(path)
+          ? path.replace(routeRe, "/")
+          : path.replace(/index\.html$/i, "");
+        if (location.protocol === "file:" && !routeRe.test(path))
+          root = path.replace(/[^/]*$/, "");
+        if (root.slice(-1) !== "/") root += "/";
+        var base = document.createElement("base");
+        base.href = root;
+        document.head.appendChild(base);
+        document.documentElement.classList.add("routed");
+        if (routeRe.test(path))
+          document.documentElement.classList.add("has-route");
+      })();
+    </script>
+    <style>
+      .drawer {
+        transform: translateX(104%);
+      }
+      .boot {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        place-items: center;
+        margin: 0;
+        background: #e8edf7;
+        background-image:
+          radial-gradient(
+            48vw 40vw at 12% 6%,
+            rgba(183, 212, 245, 0.55),
+            transparent 62%
+          ),
+          radial-gradient(
+            40vw 36vw at 88% 22%,
+            rgba(124, 207, 176, 0.34),
+            transparent 64%
+          );
+        color: #67758b;
+        font-family: "Be Vietnam Pro", "Albert Sans", system-ui, sans-serif;
+      }
+      html.has-route .boot {
+        display: grid;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      html.has-route:not(.route-ready) .boot {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      html.drawer-ready .boot {
+        transition:
+          opacity 0.32s cubic-bezier(0.19, 0.86, 0.22, 1),
+          visibility 0s linear 0.32s;
+      }
+      .boot-card {
+        display: grid;
+        justify-items: center;
+        gap: 0.95rem;
+        width: min(16rem, calc(100% - 3rem));
+        padding: 1.65rem 1.4rem 1.35rem;
+        border-radius: 28px;
+        background: linear-gradient(
+          180deg,
+          #fefeff 0%,
+          #f5f8fd 46%,
+          #e9effa 46.01%,
+          #dee7f6 100%
+        );
+        box-shadow:
+          0 22px 38px -20px rgba(35, 45, 60, 0.36),
+          inset 2px 3px 4px rgba(255, 255, 255, 0.95),
+          inset -3px -5px 9px rgba(35, 45, 60, 0.09);
+      }
+      .boot-ring {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 210deg,
+          #2a7a62 0 18%,
+          #7ccfb0 18% 42%,
+          rgba(124, 207, 176, 0.18) 0
+        );
+        -webkit-mask: radial-gradient(farthest-side, transparent 64%, #000 65%);
+        mask: radial-gradient(farthest-side, transparent 64%, #000 65%);
+        animation: boot-spin 0.9s linear infinite;
+      }
+      .boot p {
+        margin: 0;
+        font-size: 0.92rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+      html.dark .boot {
+        background: #121820;
+        background-image:
+          radial-gradient(
+            48vw 40vw at 12% 6%,
+            rgba(126, 164, 204, 0.22),
+            transparent 62%
+          ),
+          radial-gradient(
+            40vw 36vw at 88% 22%,
+            rgba(143, 217, 191, 0.16),
+            transparent 64%
+          );
+        color: #a9b6c9;
+      }
+      html.dark .boot-card {
+        background: linear-gradient(
+          180deg,
+          #3a4558 0%,
+          #2e3848 46%,
+          #283140 46.01%,
+          #222a36 100%
+        );
+        box-shadow:
+          0 22px 38px -20px rgba(0, 0, 0, 0.55),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      @keyframes boot-spin {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .boot-ring {
+          animation: none;
+        }
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      CGV Telecom — Hệ thống phòng, chống tin nhắn rác, cuộc gọi rác
+    </title>
+    <meta
+      name="description"
+      content="CGV Telecom tiếp nhận phản ánh thuê bao không quảng cáo, đối soát số liệu với nhà mạng, và xử lý tin nhắn rác cùng cuộc gọi rác." />
+    <link rel="icon" href="assets/logo/logo_icon_1.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Be+Vietnam+Pro:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="template/template-style.css" />
+  </head>
+  <body class="site">
+    <div class="boot" role="status" aria-live="polite">
+      <div class="boot-card">
+        <span class="boot-ring" aria-hidden="true"></span>
+        <p>Đang tải</p>
+      </div>
+    </div>
+    <header class="top" id="top">
+      <div class="shell bar">
+        <a class="brand" href="./">
+          <img
+            class="brand-logo"
+            src="assets/logo/logo_icon_1.png"
+            alt=""
+            width="562"
+            height="281" />
+          <span class="hl">
+            <span class="hl-base">CGV Telecom</span>
+            <span class="hl-fill" aria-hidden="true"
+              ><span>CGV Telecom</span></span
+            >
+            <svg class="hl-pointer" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M2.2 1.4 14 8.1 8.4 9.2 6.7 14.6Z" />
+            </svg>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Nghiệp vụ">
+          <a href="phan-anh-dnc">Phản ánh DNC</a>
+          <a href="kho-du-lieu">Kho dữ liệu DNC</a>
+          <a href="hau-kiem">Hậu kiểm DNC</a>
+          <a href="phan-anh-tin-nhan-cuoc-goi-rac"
+            >Phản ánh tin nhắn/cuộc gọi rác</a
+          >
+        </nav>
+        <div class="bar-end">
+          <button
+            class="theme-toggle"
+            id="theme"
+            type="button"
+            aria-pressed="false"
+            aria-label="Chuyển sang chế độ tối">
+            <svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M15.5 3.2a8.2 8.2 0 1 0 5.3 12.6A7.2 7.2 0 0 1 15.5 3.2Z" />
+            </svg>
+            <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2.5v2.2M12 19.3v2.2M4.8 4.8l1.6 1.6M17.6 17.6l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.8 19.2l1.6-1.6M17.6 6.4l1.6-1.6" />
+            </svg>
+          </button>
+          <button
+            class="burger"
+            id="burger"
+            aria-label="Mở menu"
+            aria-expanded="false"
+            aria-controls="drawer">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer" aria-label="Menu">
+      <span class="dtag">Nghiệp vụ</span>
+      <a href="phan-anh-dnc">Phản ánh DNC</a>
+      <a href="kho-du-lieu">Kho dữ liệu DNC</a>
+      <a href="hau-kiem">Hậu kiểm DNC</a>
+      <a href="phan-anh-tin-nhan-cuoc-goi-rac"
+        >Phản ánh tin nhắn/cuộc gọi rác</a
+      >
+    </aside>
+    <main id="home">
+      <section class="hero">
+        <div class="shell">
+          <span class="pill rv"><b>CGV</b> Nhà mạng và tổng đài DNC</span>
+          <h1 class="system rv d1">
+            Hệ thống phòng, chống tin nhắn rác, cuộc gọi rác
+          </h1>
+          <p class="sub rv d2">
+            Tiếp nhận phản ánh DNC, quản lý kho dữ liệu, hậu kiểm số liệu, rồi
+            xử lý phản ánh tin nhắn và cuộc gọi rác theo từng luồng của tổng
+            đài.
+          </p>
+          <div class="acts rv d3">
+            <a class="btn solid" href="phan-anh-dnc">Phản ánh DNC</a>
+            <a class="btn" href="phan-anh-tin-nhan-cuoc-goi-rac"
+              >Tin nhắn và cuộc gọi rác</a
+            >
+          </div>
+          <p class="note rv d3">Bốn nhóm nghiệp vụ, mở từ thanh phía trên.</p>
+        </div>
+      </section>
+
+      <div id="page"></div>
+    </main>
+    <div id="site-footer"></div>
+    <button class="up" id="up" aria-label="Về đầu trang">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 19V6M6 12l6-6 6 6" />
+      </svg>
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onCgvRecaptchaLoad&render=explicit" async defer></script>
+    <script src="js/config.js"></script>
+    <script src="js/errors.js"></script>
+    <script src="template/template.js"></script>
+  </body>
+</html>

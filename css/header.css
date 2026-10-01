@@ -1,0 +1,197 @@
+/*
+  Màu theo thanh mẫu: nền xám xanh nhạt, thanh trắng, nút than.
+  Đổi sáng/tối bằng class "dark" trên thẻ html.
+*/
+
+:root {
+  color-scheme: light;
+  --canvas: #eef3fb;
+  --canvas-top: #e4eefc;
+  --bar: #ffffff;
+  --ink: #1a1d26;
+  --mark: #184088;
+  --muted: #5d6673;
+  --line: color-mix(in srgb, var(--ink) 10%, transparent);
+  --button: #1a1d26;
+  --button-ink: #ffffff;
+  --shadow: 0 12px 32px -20px rgba(62, 82, 120, 0.45);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-sans: "Be Vietnam Pro", sans-serif;
+}
+
+html.dark {
+  color-scheme: dark;
+  --canvas: #12161e;
+  --canvas-top: #1a2230;
+  --bar: #1c2330;
+  --ink: #f4f7fc;
+  --mark: #d5e2fb;
+  --muted: #b7c0ce;
+  --line: color-mix(in srgb, var(--ink) 12%, transparent);
+  --button: #f4f7fc;
+  --button-ink: #1a1d26;
+  --shadow: 0 14px 32px -18px rgba(0, 0, 0, 0.55);
+}
+
+body:has(.site-header) {
+  min-height: 100dvh;
+  max-width: 100%;
+  overflow-x: clip;
+  background-color: var(--canvas);
+  background-image: linear-gradient(180deg, var(--canvas-top), var(--canvas) 280px);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-header {
+  z-index: 20;
+  font-family: var(--font-sans);
+}
+
+.nav-bar {
+  border-radius: 1.15rem;
+  background: var(--bar);
+  box-shadow: var(--shadow), inset 0 0 0 1px var(--line);
+}
+
+.logo-dark {
+  display: none;
+}
+
+html.dark .logo-light {
+  display: none;
+}
+
+html.dark .logo-dark {
+  display: block;
+}
+
+.site-name {
+  color: var(--mark);
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .site-name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transform: translateY(-2px);
+  }
+
+  .site-name::before {
+    content: "";
+    width: 1px;
+    height: 1.7rem;
+    flex: none;
+    border-radius: 1px;
+    background: var(--line);
+  }
+}
+
+.date-chip,
+.theme-toggle {
+  transition:
+    background-color 200ms var(--ease),
+    transform 200ms var(--ease),
+    box-shadow 200ms var(--ease);
+}
+
+.date-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2.5rem;
+  padding: 0 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.date-chip:hover {
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 0.7rem;
+  background: var(--button);
+  color: var(--button-ink);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.date-chip:active,
+.theme-toggle:active {
+  transform: scale(0.98);
+}
+
+.date-chip:focus,
+.theme-toggle:focus,
+.brand:focus {
+  outline: none;
+}
+
+.date-chip:focus-visible,
+.theme-toggle:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+html.dark .theme-toggle .icon-moon {
+  display: none;
+}
+
+html.dark .theme-toggle .icon-sun {
+  display: block;
+}
+
+@keyframes bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-bar {
+  animation: bar-in 640ms var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-bar,
+  .date-chip,
+  .theme-toggle {
+    animation: none;
+    transition: none;
+  }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--ink) 14%, var(--bar));
+  color: var(--ink);
+}

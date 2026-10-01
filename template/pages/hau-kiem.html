@@ -1,0 +1,131 @@
+<section class="band on" id="hau-kiem-dnc" data-group="hau-kiem">
+  <div class="shell">
+    <span class="eyebrow">Nhóm nghiệp vụ</span>
+    <h2 class="h2">Hậu kiểm DNC</h2>
+    <p class="lede">
+      Upload danh sách số cần hậu kiểm, tạo yêu cầu xử lý và theo dõi trạng thái
+      đến khi có kết quả.
+    </p>
+    <div class="work-grid">
+      <article class="work" id="recon-upload">
+        <h3>Upload file hậu kiểm</h3>
+        <div class="work-copy">
+          <p>
+            Gửi danh sách số lên hệ thống. Kết quả trả về đường dẫn file để bước
+            sau dùng.
+          </p>
+          <dl class="mean">
+            <div>
+              <dt>Tệp hậu kiểm</dt>
+              <dd>Danh sách số, định dạng CSV.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/reconciliation/upload-file"
+          data-type="upload">
+          <label class="file-field">
+            <span class="file-field-cap">Tệp hậu kiểm</span>
+            <span class="file-drop">
+              <input
+                class="pick"
+                type="file"
+                name="file"
+                accept=".csv,text/csv"
+                required />
+              <span class="file-drop-ui">
+                <span class="file-drop-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7.5 18.5h9a3.5 3.5 0 0 0 .4-7 5.25 5.25 0 0 0-10.1-1.4A4 4 0 0 0 7.5 18.5Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M12 14.25V9.5m0 0 2.25 2.25M12 9.5 9.75 11.75"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <span class="file-drop-copy">
+                  <span class="file-drop-title">Chọn file CSV để tải lên</span>
+                  <span class="file-drop-hint"
+                    >Định dạng .csv · danh sách số hậu kiểm</span
+                  >
+                  <span class="file-drop-name" hidden></span>
+                </span>
+                <span class="file-drop-cta">Chọn tệp</span>
+              </span>
+            </span>
+          </label>
+          <button class="btn solid" type="submit">Tải tệp lên</button>
+        </form>
+      </article>
+      <article class="work" id="recon-create">
+        <h3>Thêm mới yêu cầu hậu kiểm</h3>
+        <div class="work-copy">
+          <p>
+            Dùng đường dẫn tệp vừa tải lên. Kết quả xử lý sẽ về qua callback.
+          </p>
+          <dl class="mean">
+            <div>
+              <dt>Đường dẫn tệp</dt>
+              <dd>Link tệp vừa upload ở bước trước.</dd>
+            </div>
+            <div>
+              <dt>URL callback</dt>
+              <dd>Địa chỉ nhận kết quả khi xử lý xong.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/reconciliation/create"
+          data-type="json">
+          <label
+            >Đường dẫn tệp
+            <input
+              class="field"
+              name="fileUrl"
+              required
+              placeholder="Link hậu kiểm" />
+          </label>
+          <label
+            >URL callback
+            <input
+              class="field"
+              name="callbackUrl"
+              required
+              placeholder="URL callback" />
+          </label>
+          <button class="btn solid" type="submit">Tạo yêu cầu</button>
+        </form>
+      </article>
+      <article class="work" id="recon-check">
+        <h3>Kiểm tra trạng thái yêu cầu hậu kiểm</h3>
+        <div class="work-copy">
+          <p>Theo dõi tiến độ yêu cầu hậu kiểm theo mã đã tạo.</p>
+          <dl class="mean">
+            <div>
+              <dt>Mã yêu cầu</dt>
+              <dd>Mã nhận được sau khi tạo yêu cầu hậu kiểm.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/reconciliation/check-recon"
+          data-type="json">
+          <label
+            >Mã yêu cầu
+            <input class="field" name="requestId" required />
+          </label>
+          <button class="btn solid" type="submit">Kiểm tra</button>
+        </form>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,91 @@
+<section class="band on" id="kho-du-lieu-dnc" data-group="kho-du-lieu">
+  <div class="shell">
+    <span class="eyebrow">Nhóm nghiệp vụ</span>
+    <h2 class="h2">Kho dữ liệu DNC</h2>
+    <p class="lede">
+      Tải số liệu kho DNC theo khoảng thời gian và cập nhật thuê bao khi chuyển
+      mạng giữ số.
+    </p>
+    <div class="work-grid">
+      <article class="work" id="inventory-excel">
+        <h3>Tải file Excel kho dữ liệu</h3>
+        <div class="work-copy">
+          <p>
+            Kéo file Excel/ZIP kho dữ liệu DNC trong khoảng thời gian cần báo
+            cáo nội bộ.
+          </p>
+          <dl class="mean">
+            <div>
+              <dt>Từ ngày</dt>
+              <dd>Ngày bắt đầu khoảng dữ liệu cần tải.</dd>
+            </div>
+            <div>
+              <dt>Đến ngày</dt>
+              <dd>Ngày kết thúc khoảng dữ liệu cần tải.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/inventory/excel-zip"
+          data-type="download">
+          <label
+            >Từ ngày
+            <input class="field" type="date" name="fromDate" required />
+          </label>
+          <label
+            >Đến ngày
+            <input class="field" type="date" name="toDate" required />
+          </label>
+          <button class="btn solid" type="submit">Tải tệp ZIP</button>
+        </form>
+      </article>
+      <article class="work" id="inventory-telco">
+        <h3>Cập nhật thuê bao giữ số đổi mạng</h3>
+        <div class="work-copy">
+          <p>
+            Cập nhật nhà mạng mới khi thuê bao chuyển mạng nhưng giữ nguyên số.
+          </p>
+          <dl class="mean">
+            <div>
+              <dt>Số thuê bao</dt>
+              <dd>Số cần cập nhật nhà mạng.</dd>
+            </div>
+            <div>
+              <dt>Nhà mạng mới</dt>
+              <dd>
+                VIETTEL, MOBIFONE, ITEL, GMOBILE, VINAPHONE, VIETNAMMOBILE.
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/inventory/update-telco"
+          data-type="json">
+          <label
+            >Số thuê bao
+            <input
+              class="field"
+              name="phoneNumber"
+              inputmode="tel"
+              required
+              placeholder="0900000000" />
+          </label>
+          <label
+            >Nhà mạng mới
+            <select class="field" name="telPartnerCodeUpdate" required>
+              <option value="VIETTEL">VIETTEL</option>
+              <option value="MOBIFONE">MOBIFONE</option>
+              <option value="VINAPHONE">ITEL</option>
+              <option value="VIETNAM MOBILE">GMOBILE</option>
+              <option value="GTEL">VINAPHONE</option>
+              <option value="ITEL">VIETNAMMOBILE</option>
+            </select>
+          </label>
+          <button class="btn solid" type="submit">Cập nhật</button>
+        </form>
+      </article>
+    </div>
+  </div>
+</section>

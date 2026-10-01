@@ -1,0 +1,163 @@
+<section class="band on" id="phan-anh-dnc" data-group="phan-anh-dnc">
+  <div class="shell">
+    <span class="eyebrow">Nhóm nghiệp vụ</span>
+    <h2 class="h2">Phản ánh DNC</h2>
+    <p class="lede">
+      Ghi phản ánh đơn hoặc theo danh sách vào hệ thống DNC: đăng ký hoặc hủy
+      chặn quảng cáo theo số thuê bao.
+    </p>
+    <div class="work-grid">
+      <article class="work" id="reflect-one">
+        <h3>Truyền phản ánh đơn</h3>
+        <div class="work-copy">
+          <p>Gửi phản ánh đơn từng tin nhắn.</p>
+          <dl class="mean">
+            <div>
+              <dt>Số thuê bao</dt>
+              <dd>Số khách bị làm phiền cần ghi vào DNC.</dd>
+            </div>
+            <div>
+              <dt>Hình thức phản ánh</dt>
+              <dd>Kênh khách phản ánh: SMS, WEB, SWITHBOARD hoặc APP.</dd>
+            </div>
+            <div>
+              <dt>Loại đăng ký</dt>
+              <dd>SMS, CALL hoặc BOTH.</dd>
+            </div>
+            <div>
+              <dt>Loại yêu cầu</dt>
+              <dd>REGISTER để đăng ký chặn, UNREGISTER để hủy.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/reflect-add-one"
+          data-type="json">
+          <label
+            >Số thuê bao
+            <input
+              class="field"
+              name="cusPhone"
+              inputmode="tel"
+              required
+              placeholder="0912 418 663" />
+          </label>
+          <label
+            >Hình thức phản ánh
+            <select class="field" name="reflectFormCode">
+              <option value="SMS">SMS</option>
+              <option value="WEB">WEB</option>
+              <option value="SWITHBOARD">SWITHBOARD</option>
+              <option value="APP">APP</option>
+            </select>
+          </label>
+          <label
+            >Loại đăng ký
+            <select class="field" name="reflectTypeCode" required>
+              <option value="SMS">SMS</option>
+              <option value="CALL">CALL</option>
+              <option value="BOTH">BOTH</option>
+            </select>
+          </label>
+          <label
+            >Loại yêu cầu
+            <select class="field" name="requestType" required>
+              <option value="REGISTER">REGISTER</option>
+              <option value="UNREGISTER">UNREGISTER</option>
+            </select>
+          </label>
+          <button class="btn solid" type="submit">Gửi phản ánh</button>
+        </form>
+      </article>
+      <article class="work work-table" id="reflect-many">
+        <h3>Truyền phản ánh theo danh sách</h3>
+        <div class="work-copy">
+          <p>
+            Gửi phản ánh theo danh sách số điện thoại. Các trường giống với
+            truyền phản ánh đơn.
+          </p>
+        </div>
+
+        <form
+          class="sheet clay sheet-table"
+          data-endpoint="/integrate/reflect-add-many"
+          data-type="reflect-many">
+          <div class="reflect-table-wrap">
+            <table class="reflect-table">
+              <thead>
+                <tr>
+                  <th scope="col">Số điện thoại</th>
+                  <th scope="col">Hình thức phản ánh</th>
+                  <th scope="col">Loại phản ánh</th>
+                  <th scope="col">Loại yêu cầu</th>
+                  <th scope="col"><span class="sr-only">Xóa</span></th>
+                </tr>
+              </thead>
+              <tbody data-reflect-rows>
+                <tr class="reflect-row">
+                  <td>
+                    <input
+                      class="field"
+                      name="cusPhone"
+                      inputmode="tel"
+                      placeholder="0912 418 663"
+                      aria-label="Số điện thoại" />
+                  </td>
+                  <td>
+                    <select
+                      class="field"
+                      name="reflectFormCode"
+                      aria-label="Hình thức phản ánh">
+                      <option value="SMS">SMS</option>
+                      <option value="WEB">WEB</option>
+                      <option value="SWITHBOARD">SWITHBOARD</option>
+                      <option value="APP">APP</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="field"
+                      name="reflectTypeCode"
+                      required
+                      aria-label="Loại phản ánh">
+                      <option value="SMS">SMS</option>
+                      <option value="CALL">CALL</option>
+                      <option value="BOTH">BOTH</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="field"
+                      name="requestType"
+                      required
+                      aria-label="Loại yêu cầu">
+                      <option value="REGISTER">REGISTER</option>
+                      <option value="UNREGISTER">UNREGISTER</option>
+                    </select>
+                  </td>
+                  <td class="reflect-row-actions">
+                    <button
+                      class="btn reflect-row-remove"
+                      type="button"
+                      data-reflect-remove
+                      aria-label="Xóa dòng"
+                      hidden>
+                      ×
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="reflect-actions">
+            <button class="btn reflect-add" type="button" data-reflect-add>
+              + Thêm số điện thoại
+            </button>
+            <button class="btn solid" type="submit">Gửi danh sách</button>
+          </div>
+        </form>
+      </article>
+    </div>
+  </div>
+</section>

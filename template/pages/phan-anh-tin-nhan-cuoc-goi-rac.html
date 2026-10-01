@@ -1,0 +1,169 @@
+<section
+  class="band on"
+  id="phan-anh-tin-nhan-cuoc-goi-rac"
+  data-group="phan-anh-tin-nhan-cuoc-goi-rac">
+  <div class="shell">
+    <span class="eyebrow">Nhóm nghiệp vụ</span>
+    <h2 class="h2">Phản ánh tin nhắn/cuộc gọi rác</h2>
+    <p class="lede">
+      Tải danh sách phản ánh, cập nhật trạng thái xử lý và lập phản ánh mới kèm
+      bằng chứng.
+    </p>
+    <div class="work-grid">
+      <article class="work" id="complain-excel">
+        <h3>Tải file Excel phản ánh</h3>
+        <div class="work-copy">
+          <p>
+            Kéo danh sách phản ánh tin nhắn/cuộc gọi rác trong khoảng thời gian
+            cần xử lý nội bộ.
+          </p>
+          <dl class="mean">
+            <div>
+              <dt>Từ ngày</dt>
+              <dd>Ngày bắt đầu danh sách phản ánh cần tải.</dd>
+            </div>
+            <div>
+              <dt>Đến ngày</dt>
+              <dd>Ngày kết thúc danh sách phản ánh cần tải.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/complain/excel-zip"
+          data-type="download">
+          <label
+            >Từ ngày
+            <input class="field" type="date" name="fromDate" required />
+          </label>
+          <label
+            >Đến ngày
+            <input class="field" type="date" name="toDate" required />
+          </label>
+          <button class="btn solid" type="submit">Tải tệp ZIP</button>
+        </form>
+      </article>
+      <article class="work" id="complain-status">
+        <h3>Cập nhật trạng thái phản ánh</h3>
+        <div class="work-copy">
+          <p>
+            Cập nhật trạng thái phản ánh tin nhắn/cuộc gọi rác từ file Excel.
+          </p>
+          <dl class="mean">
+            <div>
+              <dt>Tệp trạng thái</dt>
+              <dd>File Excel chứa trạng thái phản ánh cần cập nhật.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/complain/excel-import-status"
+          data-type="upload">
+          <label class="file-field">
+            <span class="file-field-cap">Tệp Excel trạng thái</span>
+            <span class="file-drop">
+              <input
+                class="pick"
+                type="file"
+                name="file"
+                accept=".xls,.xlsx,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                required />
+              <span class="file-drop-ui">
+                <span class="file-drop-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7.5 18.5h9a3.5 3.5 0 0 0 .4-7 5.25 5.25 0 0 0-10.1-1.4A4 4 0 0 0 7.5 18.5Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M12 14.25V9.5m0 0 2.25 2.25M12 9.5 9.75 11.75"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <span class="file-drop-copy">
+                  <span class="file-drop-title"
+                    >Chọn file Excel để tải lên</span
+                  >
+                  <span class="file-drop-hint"
+                    >Định dạng .xls / .xlsx · trạng thái phản ánh</span
+                  >
+                  <span class="file-drop-name" hidden></span>
+                </span>
+                <span class="file-drop-cta">Chọn tệp</span>
+              </span>
+            </span>
+          </label>
+          <button class="btn solid" type="submit">Cập nhật trạng thái</button>
+        </form>
+      </article>
+      <article class="work" id="complain-add">
+        <h3>Thêm mới phản ánh</h3>
+        <div class="work-copy">
+          <p>
+            Tiếp nhận phản ánh tin nhắn/cuộc gọi kèm số người dùng, số bị phản
+            ánh, loại, nội dung và bằng chứng.
+          </p>
+          <dl class="mean">
+            <div>
+              <dt>Số người dùng</dt>
+              <dd>Thuê bao của người gửi phản ánh.</dd>
+            </div>
+            <div>
+              <dt>Số bị phản ánh</dt>
+              <dd>Số tin nhắn hoặc cuộc gọi bị tố cáo.</dd>
+            </div>
+            <div>
+              <dt>Loại phản ánh</dt>
+              <dd>Chọn từ danh mục loại phản ánh của hệ thống.</dd>
+            </div>
+            <div>
+              <dt>Nội dung</dt>
+              <dd>Nội dung tin nhắn hoặc mô tả cuộc gọi.</dd>
+            </div>
+            <div>
+              <dt>Đường dẫn bằng chứng</dt>
+              <dd>Link tệp minh họa, nếu có.</dd>
+            </div>
+          </dl>
+        </div>
+        <form
+          class="sheet clay"
+          data-endpoint="/integrate/complain/add"
+          data-type="json">
+          <label
+            >Số người dùng
+            <input class="field" name="ownerPhone" inputmode="tel" required />
+          </label>
+          <label
+            >Số bị phản ánh
+            <input class="field" name="prefixNumber" inputmode="tel" required />
+          </label>
+          <label
+            >Loại phản ánh
+            <select
+              class="field"
+              name="complainType"
+              required
+              data-complain-types>
+              <option value="">Đang tải danh mục…</option>
+            </select>
+          </label>
+          <label
+            >Nội dung
+            <textarea class="field area" name="smsContent" required></textarea>
+          </label>
+          <label
+            >Đường dẫn bằng chứng
+            <input class="field" name="evidenceFile" placeholder="https://" />
+          </label>
+          <button class="btn solid" type="submit">Gửi phản ánh</button>
+        </form>
+      </article>
+    </div>
+  </div>
+</section>
