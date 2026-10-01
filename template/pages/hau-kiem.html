@@ -1,17 +1,18 @@
 <section class="band on" id="hau-kiem-dnc" data-group="hau-kiem">
   <div class="shell">
     <span class="eyebrow">Nhóm nghiệp vụ</span>
-    <h2 class="h2">Hậu kiểm DNC</h2>
+    <h2 class="h2">Hậu kiểm không quảng cáo</h2>
     <p class="lede">
-      Upload danh sách số cần hậu kiểm, tạo yêu cầu xử lý và theo dõi trạng thái
+      Tải lên danh sách số cần hậu kiểm, tạo yêu cầu xử lý và theo dõi trạng thái
       đến khi có kết quả.
     </p>
     <div class="work-grid">
+      <!-- Tạm ẩn: upload tệp hậu kiểm
       <article class="work" id="recon-upload">
-        <h3>Upload file hậu kiểm</h3>
+        <h3>Tải tệp hậu kiểm</h3>
         <div class="work-copy">
           <p>
-            Gửi danh sách số lên hệ thống. Kết quả trả về đường dẫn file để bước
+            Gửi danh sách số lên hệ thống. Kết quả trả về đường dẫn tệp để bước
             sau dùng.
           </p>
           <dl class="mean">
@@ -64,6 +65,7 @@
           <button class="btn solid" type="submit">Tải tệp lên</button>
         </form>
       </article>
+      -->
       <article class="work" id="recon-create">
         <h3>Thêm mới yêu cầu hậu kiểm</h3>
         <div class="work-copy">
@@ -73,10 +75,10 @@
           <dl class="mean">
             <div>
               <dt>Đường dẫn tệp</dt>
-              <dd>Link tệp vừa upload ở bước trước.</dd>
+              <dd>Đường dẫn tệp vừa tải lên ở bước trước.</dd>
             </div>
             <div>
-              <dt>URL callback</dt>
+              <dt>Địa chỉ nhận kết quả</dt>
               <dd>Địa chỉ nhận kết quả khi xử lý xong.</dd>
             </div>
           </dl>
@@ -91,15 +93,15 @@
               class="field"
               name="fileUrl"
               required
-              placeholder="Link hậu kiểm" />
+              placeholder="Đường dẫn tệp hậu kiểm" />
           </label>
           <label
-            >URL callback
+            >Địa chỉ nhận kết quả
             <input
               class="field"
               name="callbackUrl"
               required
-              placeholder="URL callback" />
+              placeholder="https://" />
           </label>
           <button class="btn solid" type="submit">Tạo yêu cầu</button>
         </form>

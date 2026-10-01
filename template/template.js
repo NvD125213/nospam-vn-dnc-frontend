@@ -1304,7 +1304,7 @@
     var groups = [
       "phan-anh-dnc",
       "kho-du-lieu",
-      "hau-kiem",
+      // "hau-kiem", // tạm ẩn
       "phan-anh-tin-nhan-cuoc-goi-rac",
     ];
     var homeTitle =

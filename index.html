@@ -8,7 +8,7 @@
             document.documentElement.classList.add("dark");
         } catch (e) {}
         var groups =
-          "phan-anh-dnc|kho-du-lieu|hau-kiem|phan-anh-tin-nhan-cuoc-goi-rac";
+          "phan-anh-dnc|kho-du-lieu|phan-anh-tin-nhan-cuoc-goi-rac";
         var path = location.pathname.replace(/\/+$/, "") || "/";
         var routeRe = new RegExp("/(?:" + groups + ")$");
         var root = routeRe.test(path)
@@ -151,7 +151,7 @@
     <meta
       name="description"
       content="CGV Telecom tiếp nhận phản ánh thuê bao không quảng cáo, đối soát số liệu với nhà mạng, và xử lý tin nhắn rác cùng cuộc gọi rác." />
-    <link rel="icon" href="assets/logo/logo_icon_1.png" type="image/png" />
+    <link rel="icon" href="assets/logo/favicon.ico" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -186,9 +186,8 @@
           </span>
         </a>
         <nav class="nav" aria-label="Nghiệp vụ">
-          <a href="phan-anh-dnc">Phản ánh DNC</a>
-          <a href="kho-du-lieu">Kho dữ liệu DNC</a>
-          <a href="hau-kiem">Hậu kiểm DNC</a>
+          <a href="phan-anh-dnc">Phản ánh không quảng cáo</a>
+          <a href="kho-du-lieu">Kho dữ liệu không quảng cáo</a>
           <a href="phan-anh-tin-nhan-cuoc-goi-rac"
             >Phản ánh tin nhắn/cuộc gọi rác</a
           >
@@ -224,9 +223,8 @@
     <div class="scrim" id="scrim"></div>
     <aside class="drawer" id="drawer" aria-label="Menu">
       <span class="dtag">Nghiệp vụ</span>
-      <a href="phan-anh-dnc">Phản ánh DNC</a>
-      <a href="kho-du-lieu">Kho dữ liệu DNC</a>
-      <a href="hau-kiem">Hậu kiểm DNC</a>
+      <a href="phan-anh-dnc">Phản ánh không quảng cáo</a>
+      <a href="kho-du-lieu">Kho dữ liệu không quảng cáo</a>
       <a href="phan-anh-tin-nhan-cuoc-goi-rac"
         >Phản ánh tin nhắn/cuộc gọi rác</a
       >
@@ -234,22 +232,21 @@
     <main id="home">
       <section class="hero">
         <div class="shell">
-          <span class="pill rv"><b>CGV</b> Nhà mạng và tổng đài DNC</span>
+          <span class="pill rv"><b>CGV</b> Nhà mạng và tổng đài không quảng cáo</span>
           <h1 class="system rv d1">
             Hệ thống phòng, chống tin nhắn rác, cuộc gọi rác
           </h1>
           <p class="sub rv d2">
-            Tiếp nhận phản ánh DNC, quản lý kho dữ liệu, hậu kiểm số liệu, rồi
-            xử lý phản ánh tin nhắn và cuộc gọi rác theo từng luồng của tổng
-            đài.
+            Tiếp nhận phản ánh không quảng cáo, quản lý kho dữ liệu, rồi xử lý
+            phản ánh tin nhắn và cuộc gọi rác theo từng luồng của tổng đài.
           </p>
           <div class="acts rv d3">
-            <a class="btn solid" href="phan-anh-dnc">Phản ánh DNC</a>
+            <a class="btn solid" href="phan-anh-dnc">Phản ánh không quảng cáo</a>
             <a class="btn" href="phan-anh-tin-nhan-cuoc-goi-rac"
               >Tin nhắn và cuộc gọi rác</a
             >
           </div>
-          <p class="note rv d3">Bốn nhóm nghiệp vụ, mở từ thanh phía trên.</p>
+          <p class="note rv d3">Ba nhóm nghiệp vụ, mở từ thanh phía trên.</p>
         </div>
       </section>
 

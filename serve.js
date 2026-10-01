@@ -8,7 +8,7 @@ const port = Number(process.env.PORT) || 4173;
 const groups = new Set([
   "phan-anh-dnc",
   "kho-du-lieu",
-  "hau-kiem",
+  // "hau-kiem", // tạm ẩn
   "phan-anh-tin-nhan-cuoc-goi-rac",
 ]);
 

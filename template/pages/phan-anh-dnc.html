@@ -1,32 +1,32 @@
 <section class="band on" id="phan-anh-dnc" data-group="phan-anh-dnc">
   <div class="shell">
     <span class="eyebrow">Nhóm nghiệp vụ</span>
-    <h2 class="h2">Phản ánh DNC</h2>
+    <h2 class="h2">Phản ánh không quảng cáo</h2>
     <p class="lede">
-      Ghi phản ánh đơn hoặc theo danh sách vào hệ thống DNC: đăng ký hoặc hủy
-      chặn quảng cáo theo số thuê bao.
+      Ghi phản ánh đơn hoặc theo danh sách vào hệ thống không quảng cáo: đăng ký
+      hoặc hủy chặn quảng cáo theo số thuê bao.
     </p>
     <div class="work-grid">
       <article class="work" id="reflect-one">
         <h3>Truyền phản ánh đơn</h3>
         <div class="work-copy">
-          <p>Gửi phản ánh đơn từng tin nhắn.</p>
+          <p>Gửi phản ánh đơn từng yêu cầu.</p>
           <dl class="mean">
             <div>
               <dt>Số thuê bao</dt>
-              <dd>Số khách bị làm phiền cần ghi vào DNC.</dd>
+              <dd>Số khách bị làm phiền cần ghi vào danh sách không quảng cáo.</dd>
             </div>
             <div>
               <dt>Hình thức phản ánh</dt>
-              <dd>Kênh khách phản ánh: SMS, WEB, SWITHBOARD hoặc APP.</dd>
+              <dd>Kênh khách phản ánh: tin nhắn, web, tổng đài hoặc ứng dụng.</dd>
             </div>
             <div>
               <dt>Loại đăng ký</dt>
-              <dd>SMS, CALL hoặc BOTH.</dd>
+              <dd>Tin nhắn, cuộc gọi hoặc cả hai.</dd>
             </div>
             <div>
               <dt>Loại yêu cầu</dt>
-              <dd>REGISTER để đăng ký chặn, UNREGISTER để hủy.</dd>
+              <dd>Đăng ký để chặn quảng cáo, hoặc hủy đăng ký.</dd>
             </div>
           </dl>
         </div>
@@ -46,25 +46,25 @@
           <label
             >Hình thức phản ánh
             <select class="field" name="reflectFormCode">
-              <option value="SMS">SMS</option>
-              <option value="WEB">WEB</option>
-              <option value="SWITHBOARD">SWITHBOARD</option>
-              <option value="APP">APP</option>
+              <option value="SMS">Tin nhắn</option>
+              <option value="WEB">Web</option>
+              <option value="SWITHBOARD">Tổng đài</option>
+              <option value="APP">Ứng dụng</option>
             </select>
           </label>
           <label
             >Loại đăng ký
             <select class="field" name="reflectTypeCode" required>
-              <option value="SMS">SMS</option>
-              <option value="CALL">CALL</option>
-              <option value="BOTH">BOTH</option>
+              <option value="SMS">Tin nhắn</option>
+              <option value="CALL">Cuộc gọi</option>
+              <option value="BOTH">Cả hai</option>
             </select>
           </label>
           <label
             >Loại yêu cầu
             <select class="field" name="requestType" required>
-              <option value="REGISTER">REGISTER</option>
-              <option value="UNREGISTER">UNREGISTER</option>
+              <option value="REGISTER">Đăng ký</option>
+              <option value="UNREGISTER">Hủy đăng ký</option>
             </select>
           </label>
           <button class="btn solid" type="submit">Gửi phản ánh</button>
@@ -109,10 +109,10 @@
                       class="field"
                       name="reflectFormCode"
                       aria-label="Hình thức phản ánh">
-                      <option value="SMS">SMS</option>
-                      <option value="WEB">WEB</option>
-                      <option value="SWITHBOARD">SWITHBOARD</option>
-                      <option value="APP">APP</option>
+                      <option value="SMS">Tin nhắn</option>
+                      <option value="WEB">Web</option>
+                      <option value="SWITHBOARD">Tổng đài</option>
+                      <option value="APP">Ứng dụng</option>
                     </select>
                   </td>
                   <td>
@@ -121,9 +121,9 @@
                       name="reflectTypeCode"
                       required
                       aria-label="Loại phản ánh">
-                      <option value="SMS">SMS</option>
-                      <option value="CALL">CALL</option>
-                      <option value="BOTH">BOTH</option>
+                      <option value="SMS">Tin nhắn</option>
+                      <option value="CALL">Cuộc gọi</option>
+                      <option value="BOTH">Cả hai</option>
                     </select>
                   </td>
                   <td>
@@ -132,8 +132,8 @@
                       name="requestType"
                       required
                       aria-label="Loại yêu cầu">
-                      <option value="REGISTER">REGISTER</option>
-                      <option value="UNREGISTER">UNREGISTER</option>
+                      <option value="REGISTER">Đăng ký</option>
+                      <option value="UNREGISTER">Hủy đăng ký</option>
                     </select>
                   </td>
                   <td class="reflect-row-actions">

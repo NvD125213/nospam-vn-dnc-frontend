@@ -14,7 +14,7 @@
     ERROR_REQUEST_TYPE_MISSING: "Thiếu loại yêu cầu",
     ERROR_REQUEST_TYPE_INVALID: "Loại yêu cầu sai giá trị",
     ERROR_TEL_PARTNER_CODE_MISSING: "Thiếu thuê bao cập nhật",
-    ERROR_PHONE_NUMBER_NOT_FOUND: "Thuê bao không nằm trong kho DNC",
+    ERROR_PHONE_NUMBER_NOT_FOUND: "Thuê bao không nằm trong kho không quảng cáo",
     ERROR_PHONE_NUMBER_NOT_EXISTS: "Thuê bao không thuộc nhà mạng quản lý",
     ERROR_REQUEST_ID_MISSING: "Thiếu ID đối soát",
     ERROR_OWNER_PHONE_MISSING:
