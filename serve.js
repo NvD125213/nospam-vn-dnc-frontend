@@ -16,10 +16,10 @@ function readEnv(name, fallback) {
   try {
     const env = fs.readFileSync(path.join(root, ".env"), "utf8");
     const match = env.match(
-      new RegExp("^\\s*" + name + "\\s*=\\s*(.+)\\s*$", "m"),
+      new RegExp("^\\s*" + name + "[ \\t]*=[ \\t]*([^\\r\\n]*)$", "m"),
     );
     if (match) return match[1].trim().replace(/^["']|["']$/g, "");
-  } catch (e) {}
+  } catch (e) { }
   return process.env[name] || fallback;
 }
 
@@ -79,12 +79,12 @@ http
         res,
         200,
         "window.CGV_API_URL=" +
-          JSON.stringify(apiUrl) +
-          ";\nwindow.RECAPTCHA_SITE_KEY=" +
-          JSON.stringify(recaptchaSiteKey) +
-          ";\nwindow.RECAPTCHA_SITE_KEY_V3=" +
-          JSON.stringify(recaptchaSiteKeyV3) +
-          ";\n",
+        JSON.stringify(apiUrl) +
+        ";\nwindow.RECAPTCHA_SITE_KEY=" +
+        JSON.stringify(recaptchaSiteKey) +
+        ";\nwindow.RECAPTCHA_SITE_KEY_V3=" +
+        JSON.stringify(recaptchaSiteKeyV3) +
+        ";\n",
         { "Content-Type": "text/javascript; charset=utf-8" },
       );
       return;
