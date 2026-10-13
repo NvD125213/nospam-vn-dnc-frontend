@@ -1091,7 +1091,11 @@
               payload = null;
             }
           }
-          if (payload && !Array.isArray(payload) && envelopeState(payload) === false) {
+          if (
+            payload &&
+            !Array.isArray(payload) &&
+            envelopeState(payload) === false
+          ) {
             throw new Error(formatApiErrors(payload));
           }
           if (!res.ok) throw new Error(parseError(res, text));
@@ -1308,7 +1312,7 @@
       "phan-anh-tin-nhan-cuoc-goi-rac",
     ];
     var homeTitle =
-      "CGV Telecom — Hệ thống phòng, chống tin nhắn rác, cuộc gọi rác";
+      "Telecom — Hệ thống phòng, chống tin nhắn rác, cuộc gọi rác";
     var pageCache = {};
     var pageToken = 0;
 
@@ -1401,7 +1405,7 @@
         document.documentElement.classList.add("route-ready");
         var heading = pageSlot.querySelector("h2");
         document.title = heading
-          ? heading.textContent.trim() + " — CGV Telecom"
+          ? heading.textContent.trim() + " — Telecom"
           : homeTitle;
         scrollToSection(sectionFromLocation());
         loadComplainTypes(pageSlot);
